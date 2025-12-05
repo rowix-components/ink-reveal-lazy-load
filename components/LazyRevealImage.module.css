@@ -1,0 +1,91 @@
+/* Container for the image stack */
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #e5e7eb; /* tailwind gray-200 */
+  width: 100%;
+  height: 100%;
+}
+
+/* The low-res or solid placeholder */
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  transform: scale(1.1); /* Prevent blur edges showing white */
+  transition: opacity 0.15s ease-out;
+  z-index: 1;
+}
+
+/* The real image - initially hidden via opacity or mask */
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; 
+  z-index: 2;
+}
+
+/* The active revealing state */
+.imageRevealing {
+  opacity: 1;
+  /* 
+      Mask Setup:
+      The actual mask URL is injected via inline styles (--mask-url)
+      by the React component to ensure random seeds per instance.
+  */
+  -webkit-mask-image: var(--mask-url);
+  mask-image: var(--mask-url);
+  
+  -webkit-mask-size: 800% 100%;
+  mask-size: 800% 100%;
+  
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+
+  animation: maskPlay var(--reveal-duration, 1.2s) steps(7) forwards;
+  -webkit-animation: maskPlay var(--reveal-duration, 1.2s) steps(7) forwards;
+}
+
+/* State: Animation Finished - force remove all mask properties */
+.imageFullyVisible {
+  opacity: 1 !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-size: auto !important;
+  -webkit-mask-size: auto !important;
+  mask-position: 0 0 !important;
+  -webkit-mask-position: 0 0 !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  z-index: 3;
+}
+
+@keyframes maskPlay {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+@-webkit-keyframes maskPlay {
+  from {
+    -webkit-mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ink Reveal Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { margin: 0; }
+
+      /* Wrapper only */
+      .LRI_wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Keyframe animation for mask */
+      @keyframes LRI_maskPlay {
+        from { -webkit-mask-position: 0 0; mask-position: 0 0; }
+        to { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+      }
+      @-webkit-keyframes LRI_maskPlay {
+        from { -webkit-mask-position: 0 0; }
+        to { -webkit-mask-position: 100% 0; }
+      }
+
+      @keyframes LRI_blurPulse {
+        0% { opacity: 0.65; transform: scale(1.08); }
+        60% { opacity: 0.35; transform: scale(1.0); }
+        100% { opacity: 0; transform: scale(0.9); }
+      }
+      @-webkit-keyframes LRI_blurPulse {
+        0% { opacity: 0.65; transform: scale(1.08); }
+        60% { opacity: 0.35; transform: scale(1.0); }
+        100% { opacity: 0; transform: scale(0.9); }
+      }
+
+      @keyframes LRI_overlayPulse {
+        0% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.85); }
+        50% { opacity: 0.35; transform: translate(-50%, -50%) scale(1.05); }
+        100% { opacity: 0; transform: translate(-50%, -50%) scale(1.25); }
+      }
+      @-webkit-keyframes LRI_overlayPulse {
+        0% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.85); }
+        50% { opacity: 0.35; transform: translate(-50%, -50%) scale(1.05); }
+        100% { opacity: 0; transform: translate(-50%, -50%) scale(1.25); }
+      }
+
+      @keyframes LRI_fogSweep {
+        0% { clip-path: inset(0% 0% 0% 0%); opacity: 0.95; filter: blur(26px); transform: translateY(0%); }
+        30% { clip-path: inset(10% 0% 0% 0%); opacity: 0.8; }
+        55% { clip-path: inset(35% 0% 0% 0%); opacity: 0.55; transform: translateY(-5%); }
+        80% { clip-path: inset(65% 0% 0% 0%); opacity: 0.25; filter: blur(14px); }
+        100% { clip-path: inset(100% 0% 0% 0%); opacity: 0; transform: translateY(-10%); }
+      }
+      @-webkit-keyframes LRI_fogSweep {
+        0% { clip-path: inset(0% 0% 0% 0%); opacity: 0.95; filter: blur(26px); transform: translateY(0%); }
+        30% { clip-path: inset(10% 0% 0% 0%); opacity: 0.8; }
+        55% { clip-path: inset(35% 0% 0% 0%); opacity: 0.55; transform: translateY(-5%); }
+        80% { clip-path: inset(65% 0% 0% 0%); opacity: 0.25; filter: blur(14px); }
+        100% { clip-path: inset(100% 0% 0% 0%); opacity: 0; transform: translateY(-10%); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-native": "https://aistudiocdn.com/react-native@^0.82.1",
+    "lottie-react-native": "https://aistudiocdn.com/lottie-react-native@^7.3.4",
+    "react-native-fast-image": "https://aistudiocdn.com/react-native-fast-image@^8.6.3",
+    "@react-native-masked-view/masked-view": "https://aistudiocdn.com/@react-native-masked-view/masked-view@^0.3.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

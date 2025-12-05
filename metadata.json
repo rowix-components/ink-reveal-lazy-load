@@ -1,0 +1,5 @@
+{
+  "name": "Ink Reveal Lazy Load",
+  "description": "A dual-platform (Web & Native) implementation of a smoke/ink reveal lazy-loading image component using Masks and Intersection Observers.",
+  "requestFramePermissions": []
+}

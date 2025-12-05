@@ -1,0 +1,73 @@
+{
+  "name": "@rowix/ink-reveal-image",
+  "version": "1.0.0",
+  "description": "Beautiful ink blob reveal animation for lazy-loaded images in React. Canvas-based with smooth organic ink splatter effects.",
+  "author": "rowix",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "image",
+    "lazy-load",
+    "animation",
+    "reveal",
+    "ink",
+    "blob",
+    "canvas",
+    "transition",
+    "effect",
+    "lazy-loading",
+    "intersection-observer",
+    "progressive-image",
+    "image-reveal",
+    "splatter",
+    "organic"
+  ],
+  "homepage": "https://github.com/rowix-components/ink-reveal-lazy-load#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowix-components/ink-reveal-lazy-load.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rowix-components/ink-reveal-lazy-load/issues"
+  },
+  "type": "module",
+  "main": "./dist/ink-reveal-image.cjs.js",
+  "module": "./dist/ink-reveal-image.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ink-reveal-image.es.js",
+      "require": "./dist/ink-reveal-image.cjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^3.9.1"
+  }
+}
